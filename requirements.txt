@@ -1,0 +1,13 @@
+pyyaml
+python-dotenv
+google-genai
+pydantic
+requests
+rich
+pytest
+fastapi
+uvicorn
+httpx
+openai
+sqlalchemy
+alembic

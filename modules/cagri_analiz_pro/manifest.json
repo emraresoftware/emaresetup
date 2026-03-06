@@ -1,0 +1,6 @@
+{
+  "name": "cagri_analiz_pro",
+  "type": "analytics_module",
+  "description": "Excel'den gelen çağrı kayıtlarını analiz edip öfke tespiti yapan asenkron bir servis.",
+  "emare_hub_compatible": true
+}

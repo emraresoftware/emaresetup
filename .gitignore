@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (logs are local)
+data/hub_logs.jsonl
+
+# Node
+node_modules/
+web/node_modules/
+web/dist/
+
+# Docker
+*.log
+
+.venv/
+venv/
+node_modules/
+__pycache__/

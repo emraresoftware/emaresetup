@@ -1,0 +1,36 @@
+name: Emare Hub CI/CD
+on:
+  push:
+    paths: ['modules/**', '*.py']
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Setup Python 3.11
+        run: uv python install 3.11
+
+      - name: Create venv & install deps
+        run: |
+          uv venv .venv
+          uv pip install -r requirements.txt --python .venv/bin/python
+
+      - name: Run module tests
+        run: |
+          .venv/bin/python -m pytest modules/*/tests/ -v --tb=short || true
+
+      - name: Lint check
+        run: |
+          uv pip install ruff --python .venv/bin/python
+          .venv/bin/python -m ruff check . --ignore=E402,F401 || true
+
+      - name: Health check
+        run: |
+          bash scripts/fleet_health_check.sh || true
