@@ -1,0 +1,22 @@
+{
+  "slug": "emaresetup",
+  "name": "Emare Setup",
+  "github_repo": "emraresoftware/emaresetup",
+  "branch": "main",
+  "dc": "local",
+  "server_host": null,
+  "server_ssh_port": 22,
+  "remote_path": "/opt/emaresetup",
+  "stack": "python-gunicorn",
+  "port": 8315,
+  "domain": "",
+  "deploy_commands": [
+    "cd /opt/emaresetup",
+    "git pull origin main",
+    "source venv/bin/activate && pip install -r requirements.txt -q",
+    "sudo systemctl restart emaresetup"
+  ],
+  "restart_command": "systemctl status emaresetup --no-pager",
+  "auto_deploy_on_push": false,
+  "health_check_url": null
+}
