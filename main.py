@@ -556,3 +556,9 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+# === Emare Feedback ===
+from feedback_router import router as feedback_router
+app.include_router(feedback_router, prefix="/api/feedback", tags=["feedback"])
+# ======================
+
